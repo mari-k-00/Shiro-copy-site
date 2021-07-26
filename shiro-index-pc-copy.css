@@ -139,3 +139,28 @@ section {
   object-fit: cover;
 }
 /* concept終わり */
+
+/* work始まり */
+.work-content-wrapper {
+  height: 1609px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-between;
+  align-items: baseline;
+}
+
+.work-content {
+  max-width: 420px;
+  margin-bottom: 80px;
+  text-align: left;
+}
+
+.work-content h3 {
+  margin-top: 16px;
+}
+
+.work-before {
+  padding-top: 120px;
+}
+/* work終わり */
