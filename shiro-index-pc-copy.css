@@ -189,3 +189,33 @@ section {
   justify-content: space-around;
 }
 /* florist終わり */
+
+/* shop-information始まり */
+.shop-information {
+  width: 100%;
+  padding: 80px 0;
+}
+
+.info-table {
+  display: flex;
+  justify-content: space-around;
+}
+
+table {
+  letter-spacing: 1.5;
+  line-height: 2;
+  border-spacing: 16px;
+}
+
+table th {
+  vertical-align: top;
+  text-align: left;
+  font-weight: normal;
+  border-right: 3px solid #ededed;
+  padding: 0 16px 0 0;
+}
+
+table td {
+  text-align: left;
+}
+/* shop-information終わり */
