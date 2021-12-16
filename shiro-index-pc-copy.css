@@ -55,50 +55,108 @@ section {
   height: 64px;
 }
 
-.header__nav__wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .header__nav__logo {
   font-size: 36px;
-}
-
-.hamburger-menu {
-  position: relative;
-  width: 32px;
-  height: 64px;
-  cursor: pointer;
-}
-
-.hamburger-menu__line,
-.hamburger-menu__line::before,
-.hamburger-menu__line::after {
   position: absolute;
-  left: 0;
+  top: 59px;
+  left: 160px;
+}
+
+/* 🍔 */
+/* メニューを画面上部に固定表示しています */
+.gMenu {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+}
+/* メニューアイコンを画面右上に固定しています */
+.gMenu .menu-icon {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  padding-top: 5px;
+  height: 12px;
+}
+/* メニューアイコン（三本線）の真ん中の線です */
+.gMenu .menu-icon .navicon {
+  background: #ffc107; /* 色は自由に変更可能です */
   display: block;
-  width: 32px;
-  height: 1px;
-  background: #fff;
+  height: 2px; /* 太さ */
+  width: 31px; /* 長さ */
+  position: relative;
+  transition: background .4s ease-out; /* 形が変わる時のアニメーション */
+}
+/* メニューアイコン（三本線）の上と下の線を疑似要素で追加 */
+.gMenu .menu-icon .navicon::before,
+.gMenu .menu-icon .navicon::after {
+  background: #ffc107; /* 色は自由に変更可能です */
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .4s ease-out; /* 形が変わる時のアニメーション */
+  width: 100%;
+}
+.gMenu .menu-icon .navicon::before {top: 10px;} /* 位置を上にずらしています */
+.gMenu .menu-icon .navicon::after {top: -10px;} /* 位置を下にずらしています */
+/* 表示されるメニューです */
+.gMenu .menu {
+  background-color: rgba(255,255,255,0.9);
+  overflow: hidden;
+  max-height: 0; /* ★最初は高さを0にして非表示状態に */
+  transition: max-height .6s; /* 表示されるときのアニメーション */
+  text-align: center;
+}
+/* メニュー部分のデザインです */
+.gMenu .menu li:first-of-type {
+  padding-top: 25px;
+  padding-top: 50px;
+}
+.gMenu .menu li a {
+  display: block;
+  padding: 24px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.gMenu .menu li a:hover {
+  background-color: #f4f4f4;
+}
+/* チェックボックスは常に非表示です */
+.gMenu .menu-btn {
+  display: none;
+}
+/* ▼▼▼以下はチェックボックスがONの時の状態です▼▼▼ */
+.gMenu .menu-btn:checked ~ .menu {
+  max-height: 338px; /* ★チェックボックスがオンの時高さを338pxにして表示させます */
+  transition: max-height .6s;
+}
+/* メニューボタンの中央の線を非表示に */
+.gMenu .menu-btn:checked ~ .menu-icon .navicon {background: transparent;}
+
+/* メニューボタンの上下の線を45度傾けて✕印を作ります */
+.gMenu .menu-btn:checked ~ .menu-icon .navicon::before {transform: rotate(-45deg);top: 0;}
+.gMenu .menu-btn:checked ~ .menu-icon .navicon::after {transform: rotate(45deg);top: 0;}
+
+/* メニューアイコンを画面右上の位置変更 */
+.gMenu .menu-icon {
+  cursor: pointer;
+  position: absolute;
+  right: 160px;
+  top: 87px;
+  padding-top: 5px;
+  height: 12px;
 }
 
-.hamburger-menu__line::before,
-.hamburger-menu__line::after {
-  content: "";
+/* メニューアイコン（三本線）色変更 */
+.gMenu .menu-icon .navicon,
+.gMenu .menu-icon .navicon::before,
+.gMenu .menu-icon .navicon::after{
+  background: #ffffff;
 }
-
-.hamburger-menu__line {
-  top: 50%;
-}
-
-.hamburger-menu__line::before {
-  top: calc(50% - 8px);
-}
-
-.hamburger-menu__line::after {
-  top: calc(50% + 8px);
-}
+/* 🍔 */
 
 .header__title {
   padding-top: 240px;
